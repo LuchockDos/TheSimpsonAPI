@@ -1,0 +1,196 @@
+:root{
+  --bg: #0b0f17;
+  --panel: #101827;
+  --panel-2:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border: rgba(255,255,255,.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 16px;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+  color:var(--text);
+  background: radial-gradient(1200px 700px at 10% -10%, rgba(255,215,0,.18), transparent 55%),
+              radial-gradient(900px 600px at 90% 0%, rgba(56,189,248,.14), transparent 55%),
+              var(--bg);
+}
+
+.container{
+  width:min(1100px, 92%);
+  margin-inline:auto;
+}
+
+.app-header{
+  position: sticky;
+  top:0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(11,15,23,.65);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0 12px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width: 220px;
+}
+.brand__dot{
+  width:14px;height:14px;border-radius:999px;
+  background: linear-gradient(135deg, #fbbf24, #60a5fa);
+  box-shadow: 0 0 0 6px rgba(251,191,36,.14);
+}
+.brand__title{
+  font-size: 18px;
+  margin:0;
+  letter-spacing: .2px;
+}
+
+.search{
+  display:flex;
+  gap:10px;
+  flex: 1;
+  justify-content:center;
+}
+.search__input{
+  width: min(520px, 100%);
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(16,24,39,.85);
+  color: var(--text);
+  outline: none;
+}
+.search__input::placeholder{ color: rgba(229,231,235,.55); }
+
+.filters{
+  display:flex;
+  gap:10px;
+  padding: 10px 0 16px;
+  flex-wrap: wrap;
+}
+
+.chip{
+  border:1px solid var(--border);
+  background: rgba(16,24,39,.7);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  font-size: 13px;
+}
+.chip:hover{ transform: translateY(-1px); }
+.chip.is-active{
+  background: rgba(251,191,36,.18);
+  border-color: rgba(251,191,36,.35);
+}
+
+.btn{
+  border:1px solid var(--border);
+  background: rgba(16,24,39,.75);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+  font-weight: 600;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:disabled{ opacity: .45; cursor:not-allowed; transform:none; }
+.btn--ghost{ background: transparent; }
+.btn--star{
+  background: rgba(251,191,36,.12);
+  border-color: rgba(251,191,36,.25);
+}
+
+.results-info{
+  margin: 18px 0 14px;
+  color: var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat( auto-fill, minmax(230px, 1fr) );
+  gap:14px;
+  padding-bottom: 16px;
+}
+
+.card{
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(16,24,39,.85), rgba(15,23,42,.78));
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+
+.card__img{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display:block;
+  background: rgba(255,255,255,.04);
+}
+
+.card__body{
+  padding: 12px 12px 14px;
+}
+
+.card__title{
+  margin:0 0 10px;
+  font-size: 16px;
+  letter-spacing:.2px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap: wrap;
+  gap:8px;
+  align-items:center;
+}
+
+.badge{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+}
+.badge--alive{ border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.10); }
+.badge--dead{ border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.10); }
+.badge--unknown{ border-color: rgba(148,163,184,.35); background: rgba(148,163,184,.10); }
+
+.pager{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  align-items:center;
+  padding: 18px 0 28px;
+}
+.pager__info{
+  color: var(--muted);
+  min-width: 140px;
+  text-align:center;
+}
+
+@media (max-width: 840px){
+  .header-inner{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .brand{ min-width: unset; }
+  .search{ width: 100%; justify-content:center; }
+}

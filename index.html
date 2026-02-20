@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simpsons Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <h1 class="brand__title">Simpsons Explorer</h1>
+      </div>
+
+      <button id="favoritesBtn" class="btn btn--star" type="button">⭐ Solo favoritos</button>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <p id="resultsInfo" class="results-info"></p>
+
+    <section id="cardsGrid" class="grid"></section>
+
+    <nav class="pager" aria-label="Paginación">
+      <button id="prevPage" class="btn" type="button">← Anterior</button>
+      <span id="pageInfo" class="pager__info">Página 1</span>
+      <button id="nextPage" class="btn" type="button">Siguiente →</button>
+    </nav>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
